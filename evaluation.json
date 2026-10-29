@@ -1,0 +1,41 @@
+{
+  "data_origin": "Unverified user-supplied CSV",
+  "households": 20,
+  "hourly_observations": 8760,
+  "split_hours": {
+    "train": 6120,
+    "validation": 1320,
+    "test": 1320
+  },
+  "test_blocks": 55,
+  "train_end": "2013-09-12 23:00:00",
+  "validation_end": "2013-11-06 23:00:00",
+  "training_seconds": {
+    "ANN": 11.81,
+    "LSTM": 30.48
+  },
+  "metrics": {
+    "ANN_observed_weather": {
+      "RMSE": 2.618539347126253,
+      "MSE": 6.856748312448382,
+      "MAE": 2.0361320151290534,
+      "MAPE_pct": 11.322460912753805
+    },
+    "LSTM_recursive_24h": {
+      "RMSE": 4.196474159314987,
+      "MSE": 17.610395369798425,
+      "MAE": 3.0232734051267465,
+      "MAPE_pct": 15.42208921333896
+    },
+    "Previous_day_baseline": {
+      "RMSE": 2.373343485624779,
+      "MSE": 5.632759300757575,
+      "MAE": 1.2852295454545455,
+      "MAPE_pct": 7.8782000332252204
+    }
+  },
+  "conversion_check": "Independent NumPy inference reproduced all user-reported test metrics within 0.001. Browser inference uses exported trained weights. Floating-point results may vary slightly.",
+  "ann_weather": "Observed target-hour weather; retrospective conditional comparison. Operational ANN forecasts need future weather inputs.",
+  "lstm_evaluation": "24 recursive steps per origin, with observed history at each new origin.",
+  "validation": "Early stopping used one-step validation loss; test evaluation used recursive 24-hour LSTM forecasts."
+}
